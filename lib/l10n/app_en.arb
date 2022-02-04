@@ -1,0 +1,13 @@
+{
+    "cancel": "Cancel",
+
+    
+    "themes": "Themes",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "language": "Language",
+    "en" : "English",
+    "vi" : "Vietnamese",
+    "app_setting": "App setting"
+}

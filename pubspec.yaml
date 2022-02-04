@@ -1,0 +1,67 @@
+name: flutter_tdd_boilerplate
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.0-178.1.beta <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+    
+
+
+  # Service locator
+  get_it:
+  injectable: ^1.5.3
+
+  # Bloc for state management
+  flutter_bloc:
+  equatable:
+
+  # Functional programming thingies
+  multiple_result: ^1.0.4
+
+  # Remote API
+  connectivity_plus: ^2.2.0
+  retrofit: '>=3.0.0 <4.0.0'
+  logger: any
+
+  # Theme
+  easy_dynamic_theme: ^2.2.0
+
+  # Localizations
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
+
+  # Restart app
+  flutter_phoenix: ^1.0.0
+
+  # Database
+  hive: ^2.0.4
+  hive_flutter: ^1.0.0
+
+  # Flag
+  flag: ^6.0.0
+ 
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito:
+  retrofit_generator:
+  build_runner:
+  json_serializable:
+  injectable_generator:
+  hive_generator: ^1.1.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  
