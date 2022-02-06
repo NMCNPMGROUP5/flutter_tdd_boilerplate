@@ -42,6 +42,9 @@ class RootApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
+          theme: ThemeData(
+            fontFamily: 'Quicksand',
+          ),
           supportedLocales: [
             Locale('en', ''),
             Locale('vi', ''),
