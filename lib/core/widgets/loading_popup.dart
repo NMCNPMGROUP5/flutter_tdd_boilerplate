@@ -48,3 +48,14 @@ class LoadingPopup {
     }
   }
 }
+
+class LoadingHandler {
+  static show({
+    required BuildContext context,
+    required Function bodyFunc,
+  }) async {
+    LoadingPopup.show(context);
+    await bodyFunc();
+    LoadingPopup.hide();
+  }
+}

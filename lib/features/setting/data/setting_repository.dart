@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tdd_boilerplate/core/utils/theme/theme.dart';
 import 'package:flutter_tdd_boilerplate/core/error/failure.dart';
-import 'package:flutter_tdd_boilerplate/features/setting/domain/setting_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:multiple_result/multiple_result.dart';
-
 import 'setting_local_data_source.dart';
+
+abstract class SettingRepositoty {
+  Result<Failure, AppTheme> getAppTheme(BuildContext context);
+  Result<Failure, Locale> getLocale(BuildContext context);
+  Result<Failure, AppTheme> setTheme(AppTheme theme);
+  Result<Failure, Locale> setLocale(Locale locale);
+}
 
 @Singleton(as: SettingRepositoty)
 class SettingRepositotyImpl extends SettingRepositoty {
@@ -17,7 +22,7 @@ class SettingRepositotyImpl extends SettingRepositoty {
     try {
       return Success(_dataSource.getCurrentTheme(context));
     } catch (e) {
-      return Error(CacheFailure(message: e.toString()));
+      return Error(CacheFailure(message: "getAppTheme" + e.toString()));
     }
   }
 
@@ -26,7 +31,7 @@ class SettingRepositotyImpl extends SettingRepositoty {
     try {
       return Success(_dataSource.getCurrentLocale(context));
     } catch (e) {
-      return Error(CacheFailure(message: e.toString()));
+      return Error(CacheFailure(message: "getLocale" + e.toString()));
     }
   }
 
@@ -36,7 +41,7 @@ class SettingRepositotyImpl extends SettingRepositoty {
       _dataSource.cacheCurrentLocale(locale);
       return Success(locale);
     } catch (e) {
-      return Error(CacheFailure(message: e.toString()));
+      return Error(CacheFailure(message: "setLocale" + e.toString()));
     }
   }
 
@@ -46,7 +51,7 @@ class SettingRepositotyImpl extends SettingRepositoty {
       _dataSource.cacheCurrentTheme(theme);
       return Success(theme);
     } catch (e) {
-      return Error(CacheFailure(message: e.toString()));
+      return Error(CacheFailure(message: "setTheme" + e.toString()));
     }
   }
 }

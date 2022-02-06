@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_tdd_boilerplate/core/event/event.dart';
 import 'package:flutter_tdd_boilerplate/core/error/failure.dart';

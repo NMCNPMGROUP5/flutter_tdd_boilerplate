@@ -31,9 +31,6 @@ dependencies:
   retrofit: '>=3.0.0 <4.0.0'
   logger: any
 
-  # Theme
-  easy_dynamic_theme: ^2.2.0
-
   # Localizations
   flutter_localizations:
     sdk: flutter

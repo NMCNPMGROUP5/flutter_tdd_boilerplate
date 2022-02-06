@@ -1,4 +1,4 @@
-import 'package:flutter_tdd_boilerplate/features/setting/domain/setting_entity.dart';
+import 'package:flutter_tdd_boilerplate/features/setting/domain/entity/setting_entity.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 const HiveBoxName = 'flutter_tdd_boilerplate';

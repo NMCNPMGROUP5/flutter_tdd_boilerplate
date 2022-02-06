@@ -27,25 +27,31 @@ class SettingNavigatorImpl extends SettingNavigator {
         title: AppLocalizations.of(context)!.language,
         items: [
           ItemModal(
-              icon: Flag.fromCode(FlagsCode.GB, height: 20, width: 25),
-              title: AppLocalizations.of(context)!.en,
-              onPress: () async {
-                LoadingPopup.show(context);
+            icon: Flag.fromCode(FlagsCode.GB, height: 20, width: 25),
+            title: AppLocalizations.of(context)!.en,
+            onPress: () => LoadingHandler.show(
+              context: context,
+              bodyFunc: () async {
                 await Future.delayed(Duration(milliseconds: 300));
-                bloc.add(SwitchLanguageEvent(Locale('en', '')));
-                LoadingPopup.hide();
-              }),
+                bloc.add(
+                  SwitchLanguageEvent(Locale('en', '')),
+                );
+              },
+            ),
+          ),
           ItemModal(
-              icon: Flag.fromCode(FlagsCode.VN, height: 20, width: 26),
-              title: AppLocalizations.of(context)!.vi,
-              onPress: () async {
-                LoadingPopup.show(context);
+            icon: Flag.fromCode(FlagsCode.VN, height: 20, width: 26),
+            title: AppLocalizations.of(context)!.vi,
+            onPress: () => LoadingHandler.show(
+              context: context,
+              bodyFunc: () async {
                 await Future.delayed(Duration(milliseconds: 300));
                 bloc.add(
                   SwitchLanguageEvent(Locale('vi', '')),
                 );
-                LoadingPopup.hide();
-              }),
+              },
+            ),
+          ),
         ],
         context: context);
   }
@@ -57,29 +63,32 @@ class SettingNavigatorImpl extends SettingNavigator {
         title: AppLocalizations.of(context)!.themes,
         items: [
           ItemModal(
-              icon: Icon(
-                Icons.dark_mode,
-                color: theme.textColor,
-              ),
-              title: AppLocalizations.of(context)!.dark,
-              onPress: () async {
-                LoadingPopup.show(context);
+            icon: Icon(
+              Icons.dark_mode,
+              color: theme.textColor,
+            ),
+            title: AppLocalizations.of(context)!.dark,
+            onPress: () => LoadingHandler.show(
+              context: context,
+              bodyFunc: () async {
                 await Future.delayed(Duration(milliseconds: 300));
                 bloc.add(SwitchThemeEvent(DarkTheme.instance));
-                LoadingPopup.hide();
-              }),
+              },
+            ),
+          ),
           ItemModal(
             icon: Icon(
               Icons.light_mode,
               color: theme.textColor,
             ),
             title: AppLocalizations.of(context)!.light,
-            onPress: () async {
-              LoadingPopup.show(context);
-              await Future.delayed(Duration(milliseconds: 300));
-              bloc.add(SwitchThemeEvent(LightTheme.instance));
-              LoadingPopup.hide();
-            },
+            onPress: () => LoadingHandler.show(
+              context: context,
+              bodyFunc: () async {
+                await Future.delayed(Duration(milliseconds: 300));
+                bloc.add(SwitchThemeEvent(LightTheme.instance));
+              },
+            ),
           ),
         ],
         context: context);

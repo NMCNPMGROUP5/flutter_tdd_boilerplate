@@ -1,10 +1,10 @@
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_tdd_boilerplate/core/utils/theme/dart_theme.dart';
 import 'package:flutter_tdd_boilerplate/core/utils/theme/light_theme.dart';
 import 'package:flutter_tdd_boilerplate/core/utils/theme/theme.dart';
 import 'package:flutter_tdd_boilerplate/database/database.dart';
-import 'package:flutter_tdd_boilerplate/features/setting/domain/setting_entity.dart';
+import 'package:flutter_tdd_boilerplate/features/setting/domain/entity/setting_entity.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
@@ -50,9 +50,9 @@ class SettingLocalDataSourceImpl extends SettingLocalDataSource {
   @override
   AppTheme getCurrentTheme(BuildContext context) {
     if (settingEntity?.appTheme == null) {
-      ThemeMode? themeMode = EasyDynamicTheme.of(context).themeMode;
-      switch (themeMode) {
-        case ThemeMode.dark:
+      var brightness = SchedulerBinding.instance!.window.platformBrightness;
+      switch (brightness) {
+        case Brightness.dark:
           return DarkTheme.instance;
         default:
           return LightTheme.instance;
